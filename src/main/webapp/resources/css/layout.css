@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1-jun-2016, 22:48:54
+    Author     : jeffrey2e
+*/
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #25A793;
+}
+
+body#nav-bar {
+   margin: 0;
+   padding: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #d8e9e0;
+}
+
+.sidebar-nav li a:hover {
+    border-left: #56968D 2px solid;
+}

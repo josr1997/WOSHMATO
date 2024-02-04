@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="teamcsreate" extends="struts-default">
+		<action name="createTeam" class="nl.scalda.woshmato.controller.TeamController"
+			method="execute">
+			<result name="createTeam">/view/prossesTeam.jsp</result>
+		</action>
+		<action name="loadTeams" class="nl.scalda.woshmato.controller.TeamController"
+			method="getAllTeams">
+			<result name="getallteams">/view/showTeams.jsp</result>
+		</action>
+		<action name="deleteTeam" class="nl.scalda.woshmato.controller.TeamController"
+			method="deleteTeam">
+			<result name="teamdeleted">/view/deleteTeam.jsp</result>
+		</action>
+		<action name="createTeacher" class="nl.scalda.woshmato.controller.TeacherController"
+			method="createTeacher">
+			<result name="teachercreated">/view/createTeacher.jsp</result>
+		</action>
+		<action name="loadTeachers" class="nl.scalda.woshmato.controller.TeacherController"
+			method="getAllTeacher">
+			<result name="getallteachers">/view/showTeacher.jsp</result>
+		</action>
+		<action name="editTeacher" class="nl.scalda.woshmato.controller.TeacherController"
+			method="editTeacher">
+			<result name="teacheredited">/view/editTeacher.jsp</result>
+		</action>
+		<action name="deleteTeacher" class="nl.scalda.woshmato.controller.TeacherController"
+			method="deleteTeacher">
+			<result name="teacherdeleted">/view/deleteTeacher.jsp</result>
+		</action>
+		<action name="addCategory" class="nl.scalda.woshmato.controller.CategoryController"
+			method="addCategory">
+			<result name="success" type="redirectAction">indexCategory</result>
+			<result name="error">/view/errorPage.jsp</result>
+		</action>
+		<action name="editCategory" class="nl.scalda.woshmato.controller.CategoryController"
+			method="editCategory">
+			<result name="error">/view/errorPage.jsp</result>
+			<result name="success" type="redirectAction">indexCategory</result>
+		</action>
+		<action name="removeCategory" class="nl.scalda.woshmato.controller.CategoryController"
+			method="removeCategory">
+			<result name="success" type="chain">removeCategoryPage</result>
+		</action>
+		<action name="addGroup" class="nl.scalda.woshmato.controller.GroupController"
+			method="addGroup">
+			<result name="success" type="redirectAction">indexGroup</result>
+			<result name="error">/view/errorPage.jsp</result>
+		</action>
+		<action name="editGroup" class="nl.scalda.woshmato.controller.GroupController"
+			method="editGroup">
+			<result name="error">/view/errorPage.jsp</result>
+			<result name="success" type="redirectAction">indexGroup</result>
+		</action>
+		<action name="archiveGroup" class="nl.scalda.woshmato.controller.GroupController"
+			method="archiveGroup">
+			<result name="success" type="chain">archiveGroupPage</result>
+		</action>
+		<action name="removeGroup" class="nl.scalda.woshmato.controller.GroupController"
+			method="removeGroup">
+			<result name="success" type="chain">removeGroupPage</result>
+		</action>
+		<action name="addTask" class="nl.scalda.woshmato.controller.TaskController"
+			method="addTask">
+			<result name="success" type="redirectAction">indexTask</result>
+			<result name="error">/view/errorPage.jsp</result>
+		</action>
+		<action name="editTask" class="nl.scalda.woshmato.controller.TaskController"
+			method="editTask">
+			<result name="error">/view/errorPage.jsp</result>
+			<result name="success" type="redirectAction">indexTask</result>
+		</action>
+		<action name="archiveTask" class="nl.scalda.woshmato.controller.TaskController"
+			method="archiveTask">
+			<result name="success" type="chain">archiveTaskPage</result>
+		</action>
+		<action name="showTasks" class="nl.scalda.woshmato.controller.TaskController"
+			method="execute">
+			<result name="success">/view/showTasks.jsp</result>
+		</action>
+		<action name="index" class="nl.scalda.woshmato.controller.MainController"
+			method="execute">
+			<result name="success">index2.jsp</result>
+		</action>
+		<action name="indexTask" class="nl.scalda.woshmato.controller.TaskController"
+			method="loadAllTasks">
+			<result name="success">/view/components/Task/indexTask.jsp</result>
+		</action>
+		<action name="addTaskPage" class="nl.scalda.woshmato.controller.TaskController"
+			method="loadAllTasks">
+			<result name="success">/view/components/Task/addTask.jsp</result>
+		</action>
+		<action name="editTaskPage" class="nl.scalda.woshmato.controller.TaskController"
+			method="loadAllTasks">
+			<result name="success">/view/components/Task/editTask.jsp</result>
+		</action>
+		<action name="editTaskPage2" class="nl.scalda.woshmato.controller.TaskController"
+			method="loadTask">
+			<result name="success">/view/components/Task/editTask.jsp</result>
+		</action>
+		<action name="archiveTaskPage2" class="nl.scalda.woshmato.controller.TaskController"
+			method="archiveTaskProcess">
+			<result name="success" type="redirectAction">indexTask</result>
+		</action>
+		<action name="dearchiveTaskPage" class="nl.scalda.woshmato.controller.TaskController"
+			method="dearchiveTaskProcess">
+			<result name="success" type="redirectAction">indexTask</result>
+		</action>
+		<action name="indexCategory" class="nl.scalda.woshmato.controller.CategoryController"
+			method="loadAllCategories">
+			<result name="success">/view/components/Category/indexCategory.jsp
+			</result>
+		</action>
+		<action name="addCategoryPage" class="nl.scalda.woshmato.controller.CategoryController"
+			method="loadAllCategories">
+			<result name="success">/view/components/Category/addCategory.jsp
+			</result>
+		</action>
+		<action name="editCategoryPage" class="nl.scalda.woshmato.controller.CategoryController"
+			method="loadAllCategories">
+			<result name="success">/view/components/Category/editCategory.jsp
+			</result>
+		</action>
+		<action name="editCategoryPage2" class="nl.scalda.woshmato.controller.CategoryController"
+			method="loadCategory">
+			<result name="success">/view/components/Category/editCategory.jsp
+			</result>
+		</action>
+		<action name="removeCategoryPage2" class="nl.scalda.woshmato.controller.CategoryController"
+			method="removeCategoryProcess">
+			<result name="success" type="redirectAction">indexCategory</result>
+		</action>
+		<action name="indexGroup" class="nl.scalda.woshmato.controller.GroupController"
+			method="loadAllGroups">
+			<result name="success">/view/components/Group/indexGroup.jsp</result>
+		</action>
+		<action name="addGroupPage" class="nl.scalda.woshmato.controller.GroupController"
+			method="loadAllGroupsTeachersTeams">
+			<result name="success">/view/components/Group/addGroup.jsp</result>
+		</action>
+		<action name="editGroupPage" class="nl.scalda.woshmato.controller.GroupController"
+			method="loadAllGroupsTeachersTeams">
+			<result name="success">/view/components/Group/editGroup.jsp</result>
+		</action>
+		<action name="editGroupPage2" class="nl.scalda.woshmato.controller.GroupController"
+			method="loadGroup">
+			<result name="success">/view/components/Group/editGroup.jsp</result>
+		</action>
+		<action name="archiveGroupPage" class="nl.scalda.woshmato.controller.GroupController"
+			method="loadAllGroupsTeachersTeams">
+			<result name="success">/view/components/Group/archiveGroup.jsp</result>
+		</action>
+		<action name="archiveGroupPage2" class="nl.scalda.woshmato.controller.GroupController"
+			method="archiveGroupProcess">
+			<result name="success" type="redirectAction">indexGroup</result>
+		</action>
+		<action name="removeGroupPage" class="nl.scalda.woshmato.controller.GroupController"
+			method="loadAllGroupsTeachersTeams">
+			<result name="success">/view/components/Group/removeGroup.jsp</result>
+		</action>
+		<action name="removeGroupPage2" class="nl.scalda.woshmato.controller.GroupController"
+			method="removeGroupProcess">
+			<result name="success" type="redirectAction">indexGroup</result>
+		</action>
+		<action name="showStudents" class="nl.scalda.woshmato.controller.GroupController"
+			method="showStudents">
+			<result name="success">/view/components/Group/showStudents.jsp</result>
+		</action>
+		<action name="showTeamDetails" class="nl.scalda.woshmato.controller.TeamController"
+			method="showTeamDetails">
+			<result name="success">/view/components/Team/showTeamDetails.jsp</result>
+		</action>		
+	</package>
+	    <package name="dashboard" extends="struts-default">
+        <action name="dashboard" 
+                class="nl.scalda.woshmato.controller.IndexAction" 
+                method="execute">
+            <result name="success">/view/index.jsp</result>
+        </action>
+    </package> 
+    <package name="schedule" extends="struts-default">  
+        <action name="schedule" 
+                class="nl.scalda.woshmato.controller.ScheduleAction" 
+                method="execute">
+            <result name="success">/view/schedule.jsp</result>
+        </action>
+    </package>
+    
+    <package name="example"  extends="json-default">
+        <action name="JSONExample" class="example.JSONExample">
+            <result type="json"/>
+        </action>
+    </package>
+</struts>
